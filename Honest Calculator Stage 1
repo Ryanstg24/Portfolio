@@ -1,0 +1,29 @@
+operation = ("+", "-", "*", "/")
+decimal = "."
+while True:
+    try:
+        print("Enter an equation")
+        x, symbol, y = input().split()
+        num1 = int(float(x))
+        num2 = int(float(y))
+        if x.isnumeric() and y.isnumeric() and symbol in operation:
+            break
+        else:
+            pass
+        if decimal in x or decimal in y and symbol in operation:
+            break
+        else:
+            pass
+        if symbol not in operation:
+            print("Yes ... an interesting math operation. You've slept through all classes, haven't you?")
+        else:
+            print("Do you even know what numbers are? Stay focused!")
+
+        if type(num1) == int or type(num1) == float and type(num2) == int or type(num2) == float:
+            pass
+        else:
+            print("Do you even know what numbers are? Stay focused!")
+    except ValueError:
+        print("Do you even know what numbers are? Stay focused!")
+    else:
+        continue
