@@ -1,0 +1,131 @@
+msg_0 = "Do you even know what numbers are? Stay focused!"
+msg_1 = "Yes ... an interesting math operation. You've slept through all classes, haven't you?"
+msg_2 = "Yeah... division by zero. Smart move..."
+msg_4 = "Do you want to store the result? (y / n):"
+msg_5 = "Do you want to continue calculations? (y / n):"
+operation = ("+", "-", "*", "/")
+decimal = "."
+def add(num1, num2):
+    return num1+num2
+def subtract(num1, num2):
+    return num1-num2
+def multiply(num1, num2):
+    return num1*num2
+def divide(num1, num2):
+    return num1/num2
+memory = float(0)
+while True:
+    try:
+        print("Enter an equation")
+        x, symbol, y = input().split()
+        if x == "M":
+            M = memory
+            num1 = M
+        else:
+            num1 = float(x)
+        if y == "M":
+            M = memory
+            num2 = M
+        else:
+            num2 = float(y)
+        #num1 = float(x)
+        #num2 = float(y)
+        if x.isnumeric() or y.isnumeric() and symbol in operation:
+            if symbol == "+":
+                result = add(num1, num2)
+                print(result)
+                answer = input(msg_4)
+                if answer == "y":
+                    memory = result
+                    answer_2 = input(msg_5)
+                    if answer_2 == "y":
+                        continue
+                    elif answer_2 == "n":
+                        break
+                elif answer == "n":
+                    answer_2 = input(msg_5)
+                    if answer_2 == "y":
+                        continue
+                    elif answer_2 == "n":
+                        break
+            elif symbol == "-":
+                result = subtract(num1, num2)
+                print(result)
+                answer = input(msg_4)
+                if answer == "y":
+                    memory = result
+                    answer_2 = input(msg_5)
+                    if answer_2 == "y":
+                        continue
+                    elif answer_2 == "n":
+                        break
+                elif answer == "n":
+                    answer_2 = input(msg_5)
+                    if answer_2 == "y":
+                        continue
+                    elif answer_2 == "n":
+                        break
+            elif symbol == "*":
+                result = multiply(num1, num2)
+                print(result)
+                answer = input(msg_4)
+                if answer == "y":
+                    memory = result
+                    answer_2 = input(msg_5)
+                    if answer_2 == "y":
+                        continue
+                    elif answer_2 == "n":
+                        break
+                elif answer == "n":
+                    answer_2 = input(msg_5)
+                    if answer_2 == "y":
+                        continue
+                    elif answer_2 == "n":
+                        break
+            elif symbol == "/":
+                result = divide(num1, num2)
+                print(result)
+                answer = input(msg_4)
+                if answer == "y":
+                    memory = result
+                    answer_2 = input(msg_5)
+                    if answer_2 == "y":
+                        continue
+                    elif answer_2 == "n":
+                        break
+                elif answer == "n":
+                    answer_2 = input(msg_5)
+                    if answer_2 == "y":
+                        continue
+                    elif answer_2 == "n":
+                        break
+        else:
+            pass
+        if decimal in x or decimal in y and symbol in operation:
+            if symbol == "+":
+                result = add(num1, num2)
+                print(result)
+            elif symbol == "-":
+                result = subtract(num1, num2)
+                print(result)
+            elif symbol == "*":
+                result = multiply(num1, num2)
+                print(result)
+            elif symbol == "/":
+                result = divide(num1, num2)
+                print(result)
+        else:
+            pass
+        if symbol not in operation:
+            print(msg_1)
+            continue
+        if type(num1) == int or type(num1) == float and type(num2) == int or type(num2) == float:
+            break
+        else:
+            print(msg_0)
+    except ValueError:
+        print(msg_0)
+    except ZeroDivisionError:
+        print(msg_2)
+    else:
+        continue
